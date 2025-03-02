@@ -1,0 +1,119 @@
+.mainCol {
+    height: 100vh;
+    background-color: white;
+    color: black;
+    transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+}
+
+.mainContentNight {
+    height: 100vh;
+    border-radius: 10px;
+    font-family: Rajdhani;
+    background: radial-gradient(circle at top, rgb(4, 4, 4), white);
+    color: white;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+    animation: pulseNight 3s infinite alternate;
+    transition: transform 0.3s ease-in-out;
+    margin-top: -17px;
+}
+.mainContentNight:hover {
+    transform: scale(1.02);
+}
+
+@keyframes pulseNight {
+    0% {
+        box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+    }
+    100% {
+        box-shadow: 0 0 25px rgba(255, 255, 255, 0.5);
+    }
+}
+
+.mainContentDay {
+    height: 100vh;
+    border-radius: 10px;
+    font-family: Rajdhani;
+    background: radial-gradient(circle at top, rgb(251, 121, 8), white);
+    color: white;
+    transition: transform 0.3s ease-in-out;
+    margin-top: -17px;
+}
+
+.mainContentDay:hover {
+    transform: scale(1.02);
+}
+
+.upperCard{
+    transition: transform 0.3s ease-in-out;
+    box-shadow: none;
+    border-radius: 10px;
+}
+
+.upperCard:hover{
+    transform: scale(1.02);
+}
+
+.mainContentCloud {
+    height: 100vh;
+    border-radius: 10px;
+    font-family: Rajdhani;
+    background: radial-gradient(circle at top, rgb(148, 181, 225), white);
+    color: white;
+    transition: opacity 1s ease-in-out;
+    opacity: 0.9;
+    margin-top: -17px;
+}
+
+.mainContentCloud:hover {
+    opacity: 1;
+}
+
+h1 {
+    font-size: 60px;
+    font-weight: bold;
+    margin: 0px;
+    margin-left: 5px;
+    text-align: center;
+    font-family: fantasy;
+    transition: text-shadow 0.5s ease-in-out;
+}
+
+h1:hover {
+    text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.8);
+}
+
+.ptag {
+    font-size: 25px;
+    margin: 0px;
+    margin-left: 5px;
+    margin-bottom: 10px;
+    text-align: center;
+    font-family: fantasy;
+    transition: transform 0.3s ease-in-out;
+}
+
+.ptag:hover {
+    transform: translateY(-5px);
+}
+
+.nextDayCSS {
+    display: flex;
+    margin-top: 50%;
+    animation: floating 3s ease-in-out infinite;
+}
+
+@keyframes floating {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+.upperCard{
+    height: fit-content;
+}

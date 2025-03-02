@@ -1,0 +1,156 @@
+<ion-grid >
+    <ion-row>
+      <ion-col size-lg="3" size-sm="0" size-xs="0"></ion-col>
+      <ion-col class="mainCol" size-lg="6" size-sm="12" size-xs="12">
+        
+        <ion-header mode="ios" [translucent]="true" collapse="fade" (click)="weatherDataAPI()">
+          <ion-toolbar *ngIf="!cityName">
+            <ion-title>
+              <ion-item lines="none" style="display: flex; width: 100%;">
+                <ion-input style="flex: 1; width: auto;" type="text" placeholder="Enter Your City" [(ngModel)]="inputFieldValue"></ion-input>
+                <ion-icon name="arrow-forward-circle-outline" size="sm" (click)="setCityName()"></ion-icon>
+              </ion-item>
+            </ion-title>
+          </ion-toolbar>
+          
+          
+          <ion-toolbar *ngIf="cityName">
+            <ion-title style="font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif, Tahoma, Geneva, Verdana, sans-serif;">
+              <ion-icon name="location-outline" (click)="onChangeCityName()"></ion-icon>
+              {{ weatherData.name }}, {{ weatherData.sys.country }}</ion-title>
+          </ion-toolbar>
+        </ion-header>
+    
+        <ion-card class="upperCard" *ngIf="cloudy">
+          <video #videoPlayer width="100%" height="auto" autoplay loop playsinline>
+            <source src="assets/Cloudy1.mp4" type="video/mp4">
+          </video>
+        </ion-card>
+        
+        <ion-card class="upperCard" *ngIf="dayLight">
+          <video width="100%" height="auto" autoplay loop >
+            <source src="assets/day.mov" >
+          </video>
+        </ion-card>
+        <ion-card class="upperCard" *ngIf="nightLight">
+          <video width="100%" height="auto" autoplay loop muted playsinline>
+            <source src="assets/night.mov" >
+          </video>
+        </ion-card>
+        
+    
+        <ion-card *ngIf="cloudy" class="mainContentCloud">
+          <h1 >{{ weatherData.main.temp }}°C</h1>
+          <p class="ptag">{{ weatherData.weather[0].description }}</p>
+          <p class="ptag">Humidity : {{ weatherData.main.humidity }}%</p>
+          <p class="ptag">Wind Speed : {{ weatherData.wind.speed }} Km/h</p>
+
+          <ion-card class="nextDayCSS">
+            <ion-grid fixed>
+              <ion-row>
+                <ion-col size="2">
+                  <ion-icon style="height: 100%; width: 100%;" name="thunderstorm-outline"></ion-icon>
+                </ion-col>
+                <ion-col size="5">
+                    <p>{{todayDate}}</p>
+                    <p>ThunderStrom
+                      <ion-icon name="chevron-down-outline"></ion-icon>
+                    </p>
+                </ion-col>
+                <ion-col size="5">
+                  <p>
+                    <ion-icon name="caret-up-outline"></ion-icon>
+                    15°C
+                    <ion-icon name="caret-down-outline"></ion-icon>
+                    12°C
+                  </p>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+
+          </ion-card>
+        </ion-card>
+    
+        <ion-card *ngIf="dayLight" class="mainContentDay">
+          <h1 >{{ weatherData.main.temp }}°C</h1>
+          <p class="ptag">{{ weatherData.weather[0].description }}</p>
+          <p class="ptag">Humidity : {{ weatherData.main.humidity }}%</p>
+          <p class="ptag">Wind Speed : {{ weatherData.wind.speed }} Km/h</p>
+
+          <ion-card class="nextDayCSS">
+            <ion-grid fixed>
+              <ion-row>
+                <ion-col size="2">
+                  <ion-icon style="height: 100%; width: 100%;" name="thunderstorm-outline"></ion-icon>
+                </ion-col>
+                <ion-col size="5">
+                    <p>{{todayDate}}</p>
+                    <p>ThunderStrom
+                      <ion-icon name="chevron-down-outline"></ion-icon>
+                    </p>
+                </ion-col>
+                <ion-col size="5">
+                  <p>
+                    <ion-icon name="caret-up-outline"></ion-icon>
+                    15°C
+                    <ion-icon name="caret-down-outline"></ion-icon>
+                    12°C
+                  </p>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+
+          </ion-card>
+        </ion-card>
+        
+        <ion-card *ngIf="nightLight" class="mainContentNight">
+          <!-- <h2>{{ weatherData.name }}, {{ weatherData.sys.country }}</h2> -->
+          <h1 >{{ weatherData.main.temp }}°C</h1>
+          <p class="ptag">{{ weatherData.weather[0].description }}</p>
+          <p class="ptag">Humidity : {{ weatherData.main.humidity }}%</p>
+          <p class="ptag">Wind Speed : {{ weatherData.wind.speed }} Km/h</p>
+
+          <ion-card class="nextDayCSS">
+            <ion-grid fixed>
+              <ion-row>
+                <ion-col size="2">
+                  <ion-icon style="height: 100%; width: 100%;" name="thunderstorm-outline"></ion-icon>
+                </ion-col>
+                <ion-col size="5">
+                    <p>{{todayDate}}</p>
+                    <p>ThunderStrom
+                      <ion-icon name="chevron-down-outline"></ion-icon>
+                    </p>
+                </ion-col>
+                <ion-col size="5">
+                  <p>
+                    <ion-icon name="caret-up-outline"></ion-icon>
+                    15°C
+                    <ion-icon name="caret-down-outline"></ion-icon>
+                    12°C
+                  </p>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+
+          </ion-card>
+
+        </ion-card>
+        
+    <!-- <apx-chart 
+    #chart
+    *ngIf="chartOptions"
+    [series]="chartOptions.series"
+    [chart]="chartOptions.chart"
+    [stroke]="chartOptions.stroke"
+    [title]="chartOptions.title"
+    [fill]="chartOptions.fill"
+    [markers]="chartOptions.markers"
+    [yaxis]="chartOptions.yaxis">
+  </apx-chart> -->
+  
+  
+</ion-col>
+    <ion-col size-lg="3" size-sm="0" size-xs="0"></ion-col>
+  </ion-row>
+</ion-grid>

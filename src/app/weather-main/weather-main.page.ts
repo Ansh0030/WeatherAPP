@@ -52,7 +52,6 @@ export class WeatherMainPage implements OnInit {
         series: [
           {
             name: "Tempreture",
-            // data: [4, 3, 10, 9, 29, 19, 22, 9, 12, 7, 19, 5, 13, 9, 17, 2, 7, 5],
           },
         ],
         chart: {
@@ -63,14 +62,6 @@ export class WeatherMainPage implements OnInit {
           width: 5,
           curve: "smooth",
         },
-        // title: {
-        //   text: "Social Media",
-        //   align: "left",
-        //   style: {
-        //     fontSize: "16px",
-        //     color: "#666",
-        //   },
-        // },
         fill: {
           type: "gradient",
           gradient: {
@@ -79,17 +70,17 @@ export class WeatherMainPage implements OnInit {
             shadeIntensity: 1,
             type: "vertical",
             opacityFrom: 1,
-            opacityTo: 0.7,
-            stops: [0, 100, 100, 100],
+            opacityTo: 1,
+            stops: [0, 100, 70, 40],
           },
         },
         markers: {
-          size: 4,
+          size: 2,
           colors: ["#FFA41B"],
           strokeColors: "#fff",
-          strokeWidth: 2,
+          strokeWidth: 1,
           hover: {
-            size: 7,
+            size: 2,
           },
         },
         yaxis: {

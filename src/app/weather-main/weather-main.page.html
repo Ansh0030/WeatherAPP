@@ -6,7 +6,14 @@
           <ion-toolbar *ngIf="!cityName">
             <ion-title>
               <ion-item lines="none" style="display: flex;">
-                <ion-input style="flex: 1;" type="text" placeholder="Enter Your City" [(ngModel)]="inputFieldValue"></ion-input>
+                <ion-input 
+                style="flex: 1;" 
+                type="text" 
+                placeholder="Enter Your City" 
+                [(ngModel)]="inputFieldValue" 
+                (ionInput)="checkEnter($event)">
+              </ion-input>
+              
                 <ion-icon name="arrow-forward-circle-outline" size="sm" (click)="setCityName()"></ion-icon>
               </ion-item>
             </ion-title>

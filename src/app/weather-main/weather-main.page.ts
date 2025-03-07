@@ -162,10 +162,18 @@ export class WeatherMainPage implements OnInit {
     this.cityName = '';
   }
 
-  setCityName(){
+  checkEnter(event: any) {
+    // Check if Enter was pressed
+    if (event.inputType === "insertLineBreak") {
+      console.log("Enter key pressed on mobile!");
+      this.setCityName();
+    }
+  }
+  
+  setCityName() {
+    console.log("City Name Set:", this.inputFieldValue);
     this.cityName = this.inputFieldValue;
   }
-
   weatherDataAPI() {
     if (!this.cityName) {
       // alert("Please enter a city name.");

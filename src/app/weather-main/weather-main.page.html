@@ -37,13 +37,13 @@
           </video>
         </div>
         
-        
-        <div *ngIf="cloudy" class="mainContentCloud">
+        <div *ngIf="cloudy">
+        <div class="mainContentCloud">
           <h1 >{{ weatherData.main.temp }}°C</h1>
           <p class="ptag">{{ weatherData.weather[0].description }}</p>
           <p class="ptag">Humidity : {{ weatherData.main.humidity }}%</p>
           <p class="ptag">Wind Speed : {{ weatherData.wind.speed }} Km/h</p>
-
+        </div>
           <div id="chart">
             <apx-chart 
             #chart
@@ -80,14 +80,17 @@
             </ion-grid>
             
           </ion-card>
-        </div>
-        
-        <div *ngIf="dayLight" class="mainContentDay">
-          <h1 >{{ weatherData.main.temp }}°C</h1>
-          <p class="ptag">{{ weatherData.weather[0].description }}</p>
-          <p class="ptag">Humidity : {{ weatherData.main.humidity }}%</p>
-          <p class="ptag">Wind Speed : {{ weatherData.wind.speed }} Km/h</p>
+   
+      </div>
 
+        <div *ngIf="dayLight">
+          <div class="mainContentDay">
+            <h1 >{{ weatherData.main.temp }}°C</h1>
+            <p class="ptag">{{ weatherData.weather[0].description }}</p>
+            <p class="ptag">Humidity : {{ weatherData.main.humidity }}%</p>
+            <p class="ptag">Wind Speed : {{ weatherData.wind.speed }} Km/h</p>
+            
+          </div>
           <div id="chart">
             <apx-chart 
             #chart
@@ -98,16 +101,61 @@
             [markers]="chartOptions.markers"
             [yaxis]="chartOptions.yaxis">
           </apx-chart>  
-          </div>
+        </div>
+        <ion-card class="nextDayCSS">
+          <ion-grid fixed>
+            <ion-row>
+              <ion-col size="2">
+                <ion-icon style="height: 100%; width: 100%;" name="thunderstorm-outline"></ion-icon>
+              </ion-col>
+              <ion-col size="5">
+                <p>{{todayDate}}</p>
+                <p>ThunderStrom
+                  <ion-icon name="chevron-down-outline"></ion-icon>
+                </p>
+              </ion-col>
+              <ion-col size="5">
+                <p>
+                  <ion-icon name="caret-up-outline"></ion-icon>
+                  15°C
+                  <ion-icon name="caret-down-outline"></ion-icon>
+                  12°C
+                </p>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
           
-          
-          <ion-card class="nextDayCSS">
-            <ion-grid fixed>
-              <ion-row>
-                <ion-col size="2">
-                  <ion-icon style="height: 100%; width: 100%;" name="thunderstorm-outline"></ion-icon>
-                </ion-col>
-                <ion-col size="5">
+        </ion-card>
+      </div>
+        
+
+        <div *ngIf="nightLight">
+          <div  class="mainContentNight">
+            <!-- <h2>{{ weatherData.name }}, {{ weatherData.sys.country }}</h2> -->
+            <h1 >{{ weatherData.main.temp }}°C</h1>
+            <p class="ptag">{{ weatherData.weather[0].description }}</p>
+            <p class="ptag">Humidity : {{ weatherData.main.humidity }}%</p>
+            <p class="ptag">Wind Speed : {{ weatherData.wind.speed }} Km/h</p>
+          </div> 
+            <div id="chart">
+              <apx-chart 
+              #chart
+              [series]="chartOptions.series"
+              [chart]="chartOptions.chart"
+              [stroke]="chartOptions.stroke"
+              [fill]="chartOptions.fill"
+              [markers]="chartOptions.markers"
+              [yaxis]="chartOptions.yaxis">
+            </apx-chart>  
+            </div>
+            
+            <ion-card class="nextDayCSS">
+              <ion-grid fixed>
+                <ion-row>
+                  <ion-col size="2">
+                    <ion-icon style="height: 100%; width: 100%;" name="thunderstorm-outline"></ion-icon>
+                  </ion-col>
+                  <ion-col size="5">
                     <p>{{todayDate}}</p>
                     <p>ThunderStrom
                       <ion-icon name="chevron-down-outline"></ion-icon>
@@ -120,58 +168,14 @@
                       <ion-icon name="caret-down-outline"></ion-icon>
                       12°C
                     </p>
-                </ion-col>
-              </ion-row>
-            </ion-grid>
-
-          </ion-card>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+              
+            </ion-card>
+ 
         </div>
 
-        
-        <div *ngIf="nightLight" class="mainContentNight">
-          <!-- <h2>{{ weatherData.name }}, {{ weatherData.sys.country }}</h2> -->
-          <h1 >{{ weatherData.main.temp }}°C</h1>
-          <p class="ptag">{{ weatherData.weather[0].description }}</p>
-          <p class="ptag">Humidity : {{ weatherData.main.humidity }}%</p>
-          <p class="ptag">Wind Speed : {{ weatherData.wind.speed }} Km/h</p>
-          
-          <div id="chart">
-            <apx-chart 
-            #chart
-            [series]="chartOptions.series"
-            [chart]="chartOptions.chart"
-            [stroke]="chartOptions.stroke"
-            [fill]="chartOptions.fill"
-            [markers]="chartOptions.markers"
-            [yaxis]="chartOptions.yaxis">
-          </apx-chart>  
-          </div>
-          
-          <ion-card class="nextDayCSS">
-            <ion-grid fixed>
-              <ion-row>
-                <ion-col size="2">
-                  <ion-icon style="height: 100%; width: 100%;" name="thunderstorm-outline"></ion-icon>
-                </ion-col>
-                <ion-col size="5">
-                  <p>{{todayDate}}</p>
-                  <p>ThunderStrom
-                    <ion-icon name="chevron-down-outline"></ion-icon>
-                  </p>
-                </ion-col>
-                <ion-col size="5">
-                  <p>
-                    <ion-icon name="caret-up-outline"></ion-icon>
-                    15°C
-                    <ion-icon name="caret-down-outline"></ion-icon>
-                    12°C
-                  </p>
-                </ion-col>
-              </ion-row>
-            </ion-grid>
-            
-          </ion-card>
-        </div>
       </ion-col>
     </ion-row>
   </ion-grid>

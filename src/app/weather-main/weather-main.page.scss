@@ -6,7 +6,7 @@
 }
 
 .mainContentNight {
-    height: 100vh;
+    height : fit-content;
     border-radius: 10px;
     font-family: Rajdhani;
     background: radial-gradient(circle at top, rgb(4, 4, 4), white);
@@ -14,7 +14,7 @@
     box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
     animation: pulseNight 3s infinite alternate;
     transition: transform 0.3s ease-in-out;
-    margin-top: -17px;
+    margin-top: 2px;
 }
 
 @keyframes pulseNight {
@@ -27,31 +27,31 @@
 }
 
 .mainContentDay {
-    height: 100vh;
+    margin-top: 2px;
+    height: fit-content;
     border-radius: 10px;
     font-family: Rajdhani;
     background: radial-gradient(circle at top, rgb(251, 121, 8), white);
     color: white;
-    // transition: transform 0.3s ease-in-out;
-    margin-top: -17px;
+    padding: 5px;
 }
 
 .upperCard{
-    // transition: transform 0.3s ease-in-out;
     box-shadow: none;
     border-radius: 10px;
     width: 100%;
 }
 
 .mainContentCloud {
-    height: 100vh;
+    height:fit-content;
     border-radius: 10px;
     font-family: Rajdhani;
     background: radial-gradient(circle at top, rgb(148, 181, 225), white);
     color: white;
     transition: opacity 1s ease-in-out;
     opacity: 0.9;
-    margin-top: -17px;
+    margin-top: 2px;
+    padding: 5px;
 }
 
 

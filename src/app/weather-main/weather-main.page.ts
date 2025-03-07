@@ -37,45 +37,72 @@ export class WeatherMainPage implements OnInit {
   @ViewChild("chart") chart!: ChartComponent;
 
   // Initialize chartOptions with empty values to prevent undefined errors
-  public chartOptions: Partial<ChartOptions> = {
-    series: [],
-    chart: { type: "line", height: 350 },
-    stroke: { width: 7, curve: "smooth" },
-    title: { text: "", align: "left", style: { fontSize: "16px", color: "#666" } },
-    fill: { type: "gradient", gradient: { shade: "dark", gradientToColors: [], shadeIntensity: 1, type: "horizontal", opacityFrom: 1, opacityTo: 1, stops: [0, 100, 100, 100] } },
-    markers: { size: 4, colors: ["#FFA41B"], strokeColors: "#fff", strokeWidth: 2, hover: { size: 7 } },
-    yaxis: { min: -10, max: 40, title: { text: "Engagement" } },
-    grid: { show: true },
-    dataLabels: { enabled: false },
-  };
+  public chartOptions: any ;
 
-  constructor(private http: HttpClient
-  ) {}
+  constructor(private http: HttpClient){}
 
   ngOnInit() {
     if(!this.cityName){
       this.getCurrentLocation();
-      if (this.videoPlayer && this.videoPlayer.nativeElement) {
-        this.videoPlayer.nativeElement.muted = true; // Force mute
-        this.videoPlayer.nativeElement.play(); // Ensure autoplay works
-      }
     }else{
       this.weatherDataAPI();
-      if (this.videoPlayer && this.videoPlayer.nativeElement) {
-        this.videoPlayer.nativeElement.muted = true; // Force mute
-        this.videoPlayer.nativeElement.play(); // Ensure autoplay works
-      }
     }
+    this.chartOptions =
+      {
+        series: [
+          {
+            name: "Tempreture",
+            // data: [4, 3, 10, 9, 29, 19, 22, 9, 12, 7, 19, 5, 13, 9, 17, 2, 7, 5],
+          },
+        ],
+        chart: {
+          height: 250,
+          type: "line",
+        },
+        stroke: {
+          width: 5,
+          curve: "smooth",
+        },
+        // title: {
+        //   text: "Social Media",
+        //   align: "left",
+        //   style: {
+        //     fontSize: "16px",
+        //     color: "#666",
+        //   },
+        // },
+        fill: {
+          type: "gradient",
+          gradient: {
+            shade: "dark",
+            gradientToColors: ["#FDD835"],
+            shadeIntensity: 1,
+            type: "vertical",
+            opacityFrom: 1,
+            opacityTo: 0.7,
+            stops: [0, 100, 100, 100],
+          },
+        },
+        markers: {
+          size: 4,
+          colors: ["#FFA41B"],
+          strokeColors: "#fff",
+          strokeWidth: 2,
+          hover: {
+            size: 7,
+          },
+        },
+        yaxis: {
+          min: -10,
+          max: 40,
+        },
+      };
     this.initializeChart();
   }
-
+  
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['cityName']) {
       this.weatherDataAPI();
-      if (this.videoPlayer && this.videoPlayer.nativeElement) {
-        this.videoPlayer.nativeElement.muted = true; // Force mute
-        this.videoPlayer.nativeElement.play(); // Ensure autoplay works
-      }
     }
   }
 

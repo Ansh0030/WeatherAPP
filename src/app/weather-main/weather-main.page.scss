@@ -16,9 +16,6 @@
     transition: transform 0.3s ease-in-out;
     margin-top: -17px;
 }
-.mainContentNight:hover {
-    transform: scale(1.02);
-}
 
 @keyframes pulseNight {
     0% {
@@ -35,22 +32,15 @@
     font-family: Rajdhani;
     background: radial-gradient(circle at top, rgb(251, 121, 8), white);
     color: white;
-    transition: transform 0.3s ease-in-out;
+    // transition: transform 0.3s ease-in-out;
     margin-top: -17px;
 }
 
-.mainContentDay:hover {
-    transform: scale(1.02);
-}
-
 .upperCard{
-    transition: transform 0.3s ease-in-out;
+    // transition: transform 0.3s ease-in-out;
     box-shadow: none;
     border-radius: 10px;
-}
-
-.upperCard:hover{
-    transform: scale(1.02);
+    width: 100%;
 }
 
 .mainContentCloud {
@@ -64,9 +54,6 @@
     margin-top: -17px;
 }
 
-.mainContentCloud:hover {
-    opacity: 1;
-}
 
 h1 {
     font-size: 60px;
@@ -76,10 +63,6 @@ h1 {
     text-align: center;
     font-family: fantasy;
     transition: text-shadow 0.5s ease-in-out;
-}
-
-h1:hover {
-    text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.8);
 }
 
 .ptag {
@@ -92,13 +75,9 @@ h1:hover {
     transition: transform 0.3s ease-in-out;
 }
 
-.ptag:hover {
-    transform: translateY(-5px);
-}
-
 .nextDayCSS {
     display: flex;
-    margin-top: 50%;
+    // margin-top: 50%;
     animation: floating 3s ease-in-out infinite;
 }
 
@@ -117,3 +96,9 @@ h1:hover {
 .upperCard{
     height: fit-content;
 }
+ion-content, ion-grid, ion-row, ion-col {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  
